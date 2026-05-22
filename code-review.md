@@ -82,7 +82,6 @@ Untuk setiap temuan, tentukan:
 - Jangan flag yang sudah dijamin upstream
 - Jangan flag di luar scope yang disepakati
 - Jangan tulis solusi — daftar dulu saja
-- Kalau kode Java, gunakan juga skill `code-quality` sebagai checklist tambahan saat scan (clean code, null safety, N+1, exception handling, API contracts)
 
 Tampilkan hasilnya ke user:
 
