@@ -82,6 +82,7 @@ Untuk setiap temuan, tentukan:
 - Jangan flag yang sudah dijamin upstream
 - Jangan flag di luar scope yang disepakati
 - Jangan tulis solusi — daftar dulu saja
+- Kalau kode Java, gunakan juga skill `code-quality` sebagai checklist tambahan saat scan (clean code, null safety, N+1, exception handling, API contracts)
 
 Tampilkan hasilnya ke user:
 
@@ -210,7 +211,7 @@ Scope: {scope} | Stack: {stack}
 ---
 
 ### `.review/tasks.md`
-Append task baru dari sesi ini. Task yang sudah done dihapus dari file ini oleh user secara manual.
+Append task baru (status pending) dari sesi ini. Task yang sudah done **dihapus dari file ini saat finalisasi** — detail tetap ada di `sessions/`.
 
 ```markdown
 # Open Tasks
@@ -277,7 +278,22 @@ Salinan task yang lahir dari sesi ini — untuk trace balik saja, tidak perlu di
 
 ---
 
-Setelah semua file dibuat, ingatkan user:
+Setelah semua file dibuat, **wajib verifikasi** dengan membaca ulang setiap file:
+
+### ✅ Checklist Verifikasi STEP 5
+
+Baca ulang setiap file, centang satu per satu sebelum declare selesai:
+
+- [ ] `.review/summary.md` — temuan sesi ini sudah di-append (bukan overwrite)
+- [ ] `.review/tasks.md` — task baru (pending) ditambahkan; task yang sudah done **dihapus**
+- [ ] `.review/sessions/YYYY-MM-DD/findings.md` — dibuat, semua temuan ada
+- [ ] `.review/sessions/YYYY-MM-DD/tasks.md` — **semua task dari sesi ini** tercatat (termasuk task dari sesi lanjutan di hari yang sama)
+
+**Jangan skip checklist ini.** Kalau ada sesi review kedua dalam hari yang sama (misalnya review method berbeda), `sessions/YYYY-MM-DD/tasks.md` harus diupdate — bukan hanya dibuat sekali di awal.
+
+---
+
+Setelah checklist lengkap, ingatkan user:
 
 > "Selesai. File yang dibuat:
 > - `.review/summary.md` — diupdate, dibaca di awal sesi berikutnya
